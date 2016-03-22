@@ -86,7 +86,7 @@ def get_all_mysql_grants():
                                              host=source_hosts)
 
             if key in grants.keys():
-                raise AuthError('Duplicate username defined for %s' % key)
+                raise AuthError('Duplicate username defined for {0!s}'.format(key))
             grants[key] = {'username': user['username'].encode('ascii', 'ignore'),
                            'password': user['password'].encode('ascii', 'ignore'),
                            'privileges': privileges.encode('ascii', 'ignore'),
