@@ -110,7 +110,7 @@ def main():
 def launch_replacement_db_host(original_server,
                                dry_run=False,
                                not_a_replacement=False,
-                               overrides=dict(),
+                               overrides=None,
                                reason='',
                                replace_again=False):
     """ Launch a replacement db server
@@ -129,6 +129,8 @@ def launch_replacement_db_host(original_server,
              thrown.
     replace_again - If True, ignore already existing replacements.
     """
+    if overrides is None:
+        overrides = dict()
     reasons = set()
     if reason:
         reasons.add(reason)
